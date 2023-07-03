@@ -1,38 +1,73 @@
+import { useState } from "react"
+
 export default function Post(props) {
+
+    const [liked, setLiked] = useState("heart-outline")
+
+    const [saved, setSaved] = useState("bookmark-outline")
+
+    const [color, setCorlor] = useState("")
+
+    const [counter, setCounter] = useState(props.startcounter)
+
+    function Saved() {
+        if (saved === "bookmark-outline") {
+            setSaved("bookmark-sharp")
+        } else {
+            setSaved("bookmark-outline")
+        }
+
+    }
+
+    function Liked() {
+        if (liked === "heart-outline") {
+            setLiked("heart-sharp")
+            setCorlor("vermelho")
+            setCounter(counter + 1)
+
+        } else {
+
+            setLiked("heart-outline")
+            setCorlor("")
+            setCounter(counter - 1)
+        }
+
+    }
+
+
+
     return (
-
-
-        <div class="post">
-            <div class="topo">
-                <div class="usuario">
+        <div className="post">
+            <div className="topo">
+                <div className="usuario">
                     <img src={props.userImage} alt="photouser" />
                     {props.userName}
                 </div>
-                <div class="acoes">
+                <div className="acoes">
                     <ion-icon name="ellipsis-horizontal"></ion-icon>
                 </div>
             </div>
 
-            <div class="conteudo">
+            <div className="conteudo">
                 <img src={props.contentImage} alt="gato-telefone" />
             </div>
 
-            <div class="fundo">
-                <div class="acoes">
-                    <div>
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <ion-icon name="chatbubble-outline"></ion-icon>
-                        <ion-icon name="paper-plane-outline"></ion-icon>
+            <div className="fundo">
+                <div className="acoes">
+                    <div className="icones" >
+                        <div className={`${color}`}><ion-icon onClick={Liked} name={`${liked}`} ></ion-icon></div>
+                        <div><ion-icon name="chatbubble-outline"></ion-icon></div>
+                        <div><ion-icon name="paper-plane-outline"></ion-icon></div>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon onClick={Saved} name={`${saved}`}></ion-icon>
                     </div>
                 </div>
 
-                <div class="curtidas">
+                <div className="curtidas">
                     <img src={props.userLikedImage} alt="photoUserLiked" />
-                    <div class="texto">
-                        Curtido por <strong>{props.userLikedName}</strong> e <strong>outras 101.523 pessoas</strong>
+                    <div className="texto">
+                        Curtido por <strong>{props.userLikedName}</strong> e <strong>outras {counter} pessoas</strong>
                     </div>
                 </div>
             </div>

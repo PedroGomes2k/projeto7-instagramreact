@@ -4,12 +4,12 @@ import Posts from "../Posts/Posts"
 
 export default function Body() {
     return (
-        <div class="corpo">
-            <div class="esquerda" >
+        <div className="corpo">
+            <div className="esquerda" >
                 <Stories />
                 <Posts />
             </div>
-            <div class="sidebar">
+            <div className="sidebar">
                 <Sidebar />
             </div>
         </div>

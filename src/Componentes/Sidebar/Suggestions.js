@@ -31,22 +31,22 @@ export default function Suggestions() {
 
     return (
 
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
 
-            <div class="sugestao">
-                {suggestion.map((s) =>
-                    <Suggestion
-                        key= {s.name}
-                        image= {s.image}
-                        name= {s.name}
-                        reson= { s.reson}
-                    />
-                )}
-            </div>
+
+            {suggestion.map((s) =>
+                <Suggestion
+                    key={s.name}
+                    image={s.image}
+                    name={s.name}
+                    reson={s.reson}
+                />
+            )}
+
         </div>
     )
 }

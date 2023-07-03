@@ -12,31 +12,31 @@ export default function Stories() {
     },
     {
       image: "assets/img/barked.svg",
-      name: "9gag"
+      name: "barked"
     },
     {
       image: "assets/img/nathanwpylestrangeplanet.svg",
-      name: "9gag"
+      name: "nathanwpylestrangeplanet"
     },
     {
       image: "assets/img/wawawicomics.svg",
-      name: "9gag"
+      name: "wawawicomics"
     },
     {
       image: "assets/img/respondeai.svg",
-      name: "9gag"
+      name: "respondeai"
     },
     {
       image: "assets/img/filomoderna.svg",
-      name: "9gag"
+      name: "filomoderna"
     },
     {
       image: "assets/img/memeriagourmet.svg",
-      name: "9gag"
+      name: "memeriagourmet"
     }
   ]
   return (
-    <div class="stories">
+    <div className="stories">
       {story.map((s) =>
         <Story
           key={s.name}
@@ -45,7 +45,7 @@ export default function Stories() {
         />
       )}
 
-      <div class="setinha">
+      <div className="setinha">
         <ion-icon name="chevron-forward-circle"></ion-icon>
       </div>
     </div>
