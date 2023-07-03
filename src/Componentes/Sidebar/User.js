@@ -7,9 +7,11 @@ export default function User() {
 
     function ChangeName() {
         const newName = prompt("Qual sera seu novo nome?")
+        if (newName === "") {
 
-        setNameUser(newName)
-
+        } else {
+            setNameUser(newName)
+        }
     }
 
     function ChangeImage() {
@@ -27,10 +29,10 @@ export default function User() {
     return (
         <div className="usuario">
 
-            <img src={(!imageUser) ? "" : `${imageUser}`} onClick={ChangeImage} alt="imagem de perfil" data-test="profile-image"/>
+            <img src={`${imageUser}`} onClick={ChangeImage} alt="imagem de perfil" data-test="profile-image" />
             <div className="texto">
                 <span>
-                    <strong data-test="name">{(!nameUser) ? "" : `${nameUser}`}</strong>
+                    <strong data-test="name">{`${nameUser}`}</strong>
                     <ion-icon name="pencil" onClick={ChangeName} data-test="edit-name"></ion-icon>
                 </span>
             </div>
